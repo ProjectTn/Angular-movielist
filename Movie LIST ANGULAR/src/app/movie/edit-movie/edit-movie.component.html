@@ -1,0 +1,6 @@
+<div *ngIf="movie">
+    <h1>{{movie.Title}}</h1>
+    <img [src]="movie.Poster" />
+    <app-movie-form *ngIf="movie" [movie]="movie"></app-movie-form>
+    <button (click)="goBack()">Back</button>
+</div>

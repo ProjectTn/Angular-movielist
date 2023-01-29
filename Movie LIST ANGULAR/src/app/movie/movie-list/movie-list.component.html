@@ -1,0 +1,18 @@
+<div class="container-fluid">
+    <div class="row movie-card-container">
+            <div *ngFor="let movie of movies" class="card bg-warning movie-card" appMovie style="width: 18rem;">
+                <img src="{{movie.Poster}}" class="card-img-top">
+                <div class="card-body">
+                  <h6 class="card-title">{{movie.Title|uppercase}}</h6>
+                  <p class="card-text">Year : {{movie.Year}}</p>
+                  <p class="card-text">
+                    <span *ngFor="let genre of movie.Genre" class="genre" [ngClass]="genre|movieGenre">
+                        {{genre}}
+                    </span>
+                  </p>
+                  <button class="btn btn-primary" (click)="gotoMovieDetail(movie)">See more...</button>
+                </div>
+              </div>
+        </div>
+   
+</div>

@@ -1,0 +1,27 @@
+<div *ngIf="currentMovie">
+    <div class="card-container">
+        <div class="movie-card">
+            <div class="image">
+                <img [src]="currentMovie.Poster" [ngStyle]="{'height':'100%'}"/>
+            </div>
+            <div>
+                <div class="movie-title"><p class="title">{{currentMovie.Title}}</p>
+                    <button class="btn btn-warning" (click)="gotoBack()">Back</button>
+                    <button class="btn btn-warning" (click)="editMovie(currentMovie.Id)">Edit</button>
+                </div>
+                <div class="line"><span class="subtitle">Year</span><span>{{currentMovie.Year}}</span></div>
+                <div class="line"><span class="subtitle">Awards</span><span>{{currentMovie.Awards}}</span></div>
+                <div class="line"><span class="subtitle">Director</span><span>{{currentMovie.Director}}</span></div>
+                <div class="line"><span class="subtitle">Writer</span><span>{{currentMovie.Writer}}</span></div>
+                <div class="line"><span class="subtitle">Actors</span>
+                    <span *ngFor="let actor of currentMovie.Actors">
+                            {{actor}}|
+                    </span>
+                </div>
+                <div><span class="subtitle2">Synopsis</span><span>{{currentMovie.Pilot}}</span></div>
+            </div>
+       </div>
+
+    </div>
+    
+</div>

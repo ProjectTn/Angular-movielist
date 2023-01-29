@@ -1,0 +1,15 @@
+.movie-card-container{
+    background-color: black;
+    display: flex;
+    justify-content: center;
+
+}
+.movie-card{
+    margin: 20px;
+    border-radius: 10px;
+}
+.genre{
+    padding: 5px;
+    border-radius: 2px;
+    margin-right: 5px;
+}

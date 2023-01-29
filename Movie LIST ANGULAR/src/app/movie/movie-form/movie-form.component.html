@@ -1,0 +1,32 @@
+<div *ngIf="movie">
+<form (ngSubmit)="onSubmit()" #movieForm="ngForm">
+    <label for="title">Title</label><br />
+    <input type="text" name="title" id="title" [(ngModel)]="movie.Title" #title="ngModel" 
+    pattern="^.{1,25}$" 
+    required />
+    <div [hidden]="title.valid||title.pristine">
+        Title field is a 25 max-length-string !
+    </div>
+
+    <label for="year">Year</label><br />
+    <input type="text" name="year" id="year" [(ngModel)]="movie.Year" #year="ngModel" 
+    pattern="^[0-9]{4}$" 
+    required />
+    <div [hidden]="year.valid||year.pristine">
+        Year should contain 4 nubers !
+    </div>
+
+    <label for="pilot">Pilot</label><br />
+    <input type="text" name="pilot" id="pilot" [(ngModel)]="movie.Pilot" #pilot="ngModel" />
+
+    <label for="pilot">Catgories</label><br />
+    <div *ngFor="let genre of Genres">
+        <input type="checkbox" name="genre" [value]=genre
+        [checked]="hasGenre(genre)"
+        (change)="selectGenre($event, genre)" />
+        {{genre}}
+    </div>
+
+    <button type="submit" [disabled]="!movieForm.form.valid">Valider</button>
+</form>
+</div>
